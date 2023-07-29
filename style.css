@@ -1,0 +1,130 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.heading {
+  width: 100%;
+}
+.title {
+  background-color: #1abc9c;
+  color: white;
+  height: 80px;
+  text-align: center;
+  font-size: 60px;
+  padding-top: 20px;
+  letter-spacing: 10px;
+}
+.navbar {
+  display: flex;
+  gap: 20px;
+  background-color: #333;
+  padding: 5px;
+}
+.link a {
+  text-align: center;
+  text-decoration: none;
+  color: white;
+}
+.content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+.about {
+  padding: 15px;
+  flex: 25%;
+  background-color: #f1f1f1;
+  height: 575px;
+  background-image: url(https://5.imimg.com/data5/TU/ED/MY-8488556/miracle-accounting-ssftware.png);
+  background-repeat: no-repeat;
+  background-size: 150px 70px;
+  background-position: bottom center;
+}
+.aboutTitle {
+  margin-top: 20px;
+  font-weight: bold;
+  border-right: 2px dashed #1abc9c;
+}
+.aboutDescription {
+  margin-left: 5px;
+  border-right: 2px dashed #1abc9c;
+  border-bottom: 2px dashed #1abc9c;
+}
+.aboutDescription ul li {
+  margin: 5px;
+  padding: 3px;
+}
+.tasks {
+  padding: 15px;
+  flex: 50%;
+}
+.task {
+  border: 2px solid #1abc9c;
+  border-radius: 5px;
+}
+.taskTitle {
+  margin-bottom: 5px;
+  font-size: 20px;
+  background-color: #1abc9c;
+  padding: 5px;
+  text-align: center;
+}
+.taskTitle a {
+  text-decoration: none;
+  color: white;
+  padding: 5px;
+  font-weight: bold;
+}
+.taskDescription {
+  padding: 5px;
+  line-height: 1.5;
+}
+.contacts {
+  padding: 15px;
+  flex: 25%;
+  background-color: #f1f1f1;
+}
+.contact:first-child {
+  margin-top: 20px;
+}
+.contact {
+  margin-bottom: 15px;
+}
+.contactName {
+  font-weight: bold;
+  border-left: 2px dashed #1abc9c;
+  padding-left: 10px;
+}
+.contactLink {
+  padding-left: 10px;
+  padding-bottom: 5px;
+  border-bottom: 2px dashed #1abc9c;
+  border-left: 2px dashed #1abc9c;
+}
+.contactLink i {
+  margin-right: 7px;
+  color: #1abc9c;
+}
+@media screen and (max-width: 700px) {
+  .title {
+    font-size: 50px;
+    letter-spacing: 3px;
+  }
+  .navbar {
+    flex-direction: column;
+    gap: 5px;
+  }
+  .about {
+    background-image: none;
+  }
+  .content {
+    flex-direction: column;
+  }
+}
