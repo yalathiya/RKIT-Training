@@ -17,9 +17,9 @@ input:focus {
 textarea {
   border-radius: 5px;
 }
-textarea:focus {
+/* textarea:focus {
   background-color: lightblue;
-}
+} */
 .Educational input {
   width: auto;
 }
