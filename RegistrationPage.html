@@ -36,7 +36,12 @@
           </div>
           <div class="inp">
             <label id="l_name lbl">Last Name:</label>
-            <input type="text" name="l_name" placeholder="Tendulkar" />
+            <input
+              type="text"
+              id="l_name"
+              name="l_name"
+              placeholder="Tendulkar"
+            />
           </div>
           <div class="inp">
             <label id="dob lbl">Date of Birth:</label>
@@ -107,12 +112,13 @@
             <input type="password" id="cnf_pwd" name="cnf_pwd" />
           </div>
         </fieldset>
-        <input class="submit" type="submit" onclick="submitMsg()" />
+        <input class="submit" type="submit" />
         <input
           class="reset"
           type="reset"
           onmouseover="resetMsg()"
           onmouseout="clearResetMsg()"
+          onclick="resetMsg()"
         /><span id="resetMsg" style="color: red"></span>
       </form>
     </div>
