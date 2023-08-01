@@ -97,14 +97,17 @@ isCookieBtn.addEventListener("click", () => {
   if (
     document.cookie
       .split(";")
-      .some((item) => item.trim().startsWith(inputCookie + "="))
+      .some((item) => item.trim().startsWith(inputCookie.value + "="))
   ) {
     console.log("present");
     const output = document.getElementById("isCookieText");
-    output.textContent = inputCookie + "is present";
+    output.innerHTML = inputCookie.value + "is present";
   } else {
     console.log("Not present");
     const output = document.getElementById("isCookieText");
-    output.textContent = inputCookie + "is not present";
+    output.textContent = inputCookie.value + "is not present";
   }
 });
+
+//Coo
+//Check that cookie has specific value or not
