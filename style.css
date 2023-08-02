@@ -259,6 +259,7 @@ body {
 @media screen and (max-width: 400px) {
   .title {
     font-size: 35px;
+    padding-top: 15px;
     letter-spacing: 3px;
   }
   .navbar {
