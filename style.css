@@ -256,6 +256,25 @@ body {
     background-size: 0px, cover;
   }
 }
+@media screen and (max-width: 400px) {
+  .title {
+    font-size: 25px;
+    letter-spacing: 3px;
+  }
+  .navbar {
+    flex-direction: column;
+    gap: 5px;
+  }
+  .about {
+    background-image: none;
+  }
+  .content {
+    flex-direction: column;
+  }
+  .tasks {
+    background-size: 0px, cover;
+  }
+}
 @keyframes changeColor {
   0% {
     color: black;
