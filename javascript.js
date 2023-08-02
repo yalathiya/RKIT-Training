@@ -101,13 +101,31 @@ isCookieBtn.addEventListener("click", () => {
   ) {
     console.log("present");
     const output = document.getElementById("isCookieText");
-    output.innerHTML = inputCookie.value + "is present";
+    output.innerHTML = inputCookie.value + " is present";
   } else {
     console.log("Not present");
     const output = document.getElementById("isCookieText");
-    output.textContent = inputCookie.value + "is not present";
+    output.textContent = inputCookie.value + " is not present";
   }
 });
 
-//Coo
+//Cookie Validation
 //Check that cookie has specific value or not
+const inputCookieNameBtn = document.querySelector("#inputCookieNameButton");
+inputCookieNameBtn.addEventListener("click", () => {
+  const inputCookieName = document.getElementById("inputCookieName");
+  const inputCookieValue = document.getElementById("inputCookieValue");
+  if (
+    document.cookie
+      .split(";")
+      .some(
+        (item) => item === inputCookieName.value + "=" + inputCookieValue.value
+      )
+  ) {
+    const output = document.getElementById("cookieValidation");
+    output.textContent = "Cookie is valid";
+  } else {
+    const output = document.getElementById("cookieValidation");
+    output.textContent = "Cookie is invalid";
+  }
+});
