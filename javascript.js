@@ -11,18 +11,23 @@ if (typeof Storage !== "undefined") {
 localStorage.setItem("Position", "Web Developer");
 localStorage.setItem("a", "Web b");
 localStorage.setItem("c", "Web d");
+
 //retrieve
 console.log("Your position is " + localStorage.getItem("Position"));
+
 //remove
 localStorage.removeItem("Position");
 if (!localStorage.getItem("Position")) {
   //here value in if contion is null..
   console.log("Position does not exist");
 }
+
 //clear
+
 // Remove all saved data from sessionStorage
 console.log("a : " + localStorage.getItem("a"));
 console.log("c : " + localStorage.getItem("c"));
+
 // localStorage.clear();
 console.log("a : " + localStorage.getItem("a"));
 console.log("c : " + localStorage.getItem("c"));
@@ -82,7 +87,7 @@ const findCookieValueBtn = document.querySelector("#findCookieValueButton");
 findCookieValueBtn.addEventListener("click", () => {
   const cookieValue = document.cookie
     .split("; ")
-    .find((row) => row.startsWith("name="))
+    .find((cookieName) => cookieName.startsWith("name="))
     ?.split("=")[1];
   const output = document.getElementById("cookieValue");
   output.textContent = ">" + cookieValue;
@@ -129,3 +134,84 @@ inputCookieNameBtn.addEventListener("click", () => {
     output.textContent = "Cookie is invalid";
   }
 });
+
+//Cache
+
+//is cache support available or not ?
+let isCacheSupported = "caches" in window;
+if (isCacheSupported) {
+  console.log("Cache is supported");
+} else {
+  console.log("Cache is not supported");
+}
+
+//For creating cache
+//here myCache is cacheName
+caches.open("myCache").then((cache) => {
+  console.log("myCache is created");
+});
+
+//Adding
+
+//Single item addition in cache
+let amazonLogoUrl = //if any link contains AllowAccessOrigin in server side header then it can not be cacahed.
+  "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/2560px-Amazon_logo.svg.png";
+caches.open("myCache").then((cache) => {
+  cache.add(amazonLogoUrl).then(() => {
+    console.log("Amazon Logo is added in cache memory");
+  });
+});
+
+//Multiple items addition in cache
+let flipcartLogoUrl =
+  "https://imagedelivery.net/5MYSbk45M80qAwecrlKzdQ/3e7a0718-2f18-4201-845f-68bfb02fa400/public";
+let jiomartLogoUrl =
+  "https://upload.wikimedia.org/wikipedia/en/5/54/JioMart_logo.svg";
+let urlArray = [flipcartLogoUrl, jiomartLogoUrl];
+caches.open("myCache").then((cache) => {
+  cache.addAll(urlArray).then(() => {
+    console.log("Array of url is cached");
+  });
+});
+
+//Addition using put method in key-value pair
+fetch(amazonLogoUrl).then((response) => {
+  caches.open("myCache").then((cache) => {
+    cache.put(amazonLogoUrl, response);
+    console.log("amazonLogoUrl is added by put method");
+  });
+});
+
+//Retriving from cache
+caches.open("myCache").then((cache) => {
+  cache.match(amazonLogoUrl).then((response) => {
+    console.log(response);
+  });
+});
+
+//Returns all items from cache
+caches.open("myCache").then((cache) => {
+  console.log("********" + cache.keys());
+});
+
+//Retrieving all items from cache
+caches.open("myCache").then((cache) => {
+  cache.keys().then((arrayOfRequest) => {
+    console.log(arrayOfRequest);
+  });
+});
+
+//Delete an item from cache
+caches.open("myCache").then((cache) => {
+  cache.delete(flipcartLogoUrl);
+});
+caches.open("myCache").then((cache) => {
+  cache.match(flipcartLogoUrl).then((response) => {
+    console.log(response); //prints undefined because flipcart logo is not in cache
+  });
+});
+
+//Delete cache completely
+// caches.delete("myCache").then((cache) => {
+//   console.log("myCache is deleted successfully"); //prints undefined because
+// });
