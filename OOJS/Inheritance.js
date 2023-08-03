@@ -1,4 +1,7 @@
+//Parent Class
+
 class Person {
+  static aadharNumber = 123456781234;
   constructor(firstName, lastName) {
     this.firstName = firstName;
     this.lastName = lastName;
@@ -7,6 +10,8 @@ class Person {
     console.log("Im Person");
   }
 }
+
+//Subclass
 class Employee extends Person {
   companyName;
   constructor(firstName, lastName, companyName) {
@@ -17,6 +22,15 @@ class Employee extends Person {
     console.log("Im Employee");
   }
 }
-const emplyee1 = new Employee("Yash", "Lathiya", "RKIT");
-console.log(employee1);
-s1.who();
+
+//Instance of subclass
+
+const employee1 = new Employee("Yash", "Lathiya", "RKIT");
+console.log(employee1.firstName);
+employee1.who();
+
+//Parent class has static variable, which can not be accessed by instance.
+
+//returns undefined as it has no access
+//Similar result will be appeared on screen if try to access static variable by parent class' instance
+console.log(employee1.aadharNumber);
