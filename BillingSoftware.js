@@ -194,7 +194,7 @@ $(document).ready(function () {
         "</td><td>" +
         confirmedBills[i].customerAddress +
         "</td></tr>";
-      $("#tableConfirmedBills tr:nth-child(1)").nextAll().remove();
+      // $("#tableConfirmedBills tr:nth-child(1)").nextAll().remove();
       $("#tableConfirmedBills").append(rowConfirmedBills);
     }
   });
