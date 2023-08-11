@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Previous Year Bills</title>
+    <title>Current Year Bills</title>
     <!-- Bootstrap link -->
     <link
       rel="stylesheet"
@@ -47,11 +47,11 @@
           id="btnShowPreviousBills"
         >
           <a
-            href="BillingSoftware.html"
+            href="PreviousYearBills.html"
             class="text-white"
             style="text-decoration: none"
           >
-            Home</a
+            Previous Year Bills <br />(From JSON File)</a
           >
         </button>
         <button
@@ -60,12 +60,10 @@
           id="btnShowConfirmedBills"
         >
           <a
-            href="CurrentYearBills.html"
+            href="BillingSoftware.html"
             class="text-white"
             style="text-decoration: none"
-          >
-            Current Year Bills <br />
-            (Confirmed from here)</a
+            >Home</a
           >
         </button>
       </div>
@@ -81,11 +79,14 @@
           style="color: #ffffff"
         ></i>
       </div>
-      <div class="previousBills">
-        <div class="text-white text-dark bg-white text-center">
-          Previous Bills (From JSON File)
+      <div class="confirmedBills">
+        <div
+          class="text-white text-dark bg-white text-center"
+          id="themeCurrentBillsPage"
+        >
+          Confirmed Bills
         </div>
-        <table id="tablePreviousBills" class="table table-bordered text-white">
+        <table id="tableConfirmedBills" class="table table-bordered text-white">
           <tr>
             <td>Bill Date</td>
             <td>Bill Number</td>
@@ -106,5 +107,7 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="BillingSoftware.js"></script>
+    <!-- theme Change Script -->
+    <script src="themeCurrentBills.js"></script>
   </body>
 </html>
